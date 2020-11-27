@@ -37,7 +37,7 @@ const shopMenuRouter = require('./routers/Menu/shopmenu');
 // const { Logger } = require('mongodb');
 app.use('/shopmenu', shopMenuRouter)
 
-app.listen(5000, () => {
+app.listen(3000, () => {
     console.log('Server started', con)
 
 })
