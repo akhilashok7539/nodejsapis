@@ -9,7 +9,7 @@ const url = 'mongodb://shopgi_shopgi:password1234@localhost/shopgi_shopdb';
 
 app.use(cors())
 
-mongoose.connect(url, { useNewUrlParser: true });
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const con = mongoose.connection;
 
@@ -33,9 +33,11 @@ const menuRestRouter = require('./routers/Menu/restaurant')
 app.use('/menurest', menuRestRouter)
 
 //Shop Menu
-const shopMenuRouter = require('./routers/Menu/shopmenu')
+const shopMenuRouter = require('./routers/Menu/shopmenu');
+// const { Logger } = require('mongodb');
 app.use('/shopmenu', shopMenuRouter)
 
 app.listen(5000, () => {
-    console.log('Server started')
+    console.log('Server started', con)
+
 })
